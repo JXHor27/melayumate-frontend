@@ -3,49 +3,6 @@ import { useState, useEffect } from 'react';
 import { FaBell } from 'react-icons/fa'; // Example icons
 import NotificationPanel from './NotificationPanel';
 
-const mockNotifications = [
-  {
-    id: 'notif1',
-    type: 'GOAL_REMINDER',
-    title: 'Daily Goal Reminder',
-    message: "You're close to your daily goal of 2 practices! Keep up the great work.",
-    isRead: false,
-    createdAt: new Date(Date.now() - 1000 * 60 * 60).toISOString(), // 1 hour ago
-  },
-  {
-    id: 'notif2',
-    type: 'ACHIEVEMENT',
-    title: 'Streak Unlocked!',
-    message: 'You have completed your daily goal for 3 days in a row. Amazing!',
-    isRead: false,
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2).toISOString(), // 2 days ago
-  },
-  {
-    id: 'notif3',
-    type: 'ACHIEVEMENT',
-    title: 'Level Up!',
-    message: 'Congratulations, you have reached Level 5!',
-    isRead: true,
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4).toISOString(), // 4 weeks ago
-  },
-  {
-    id: 'notif4',
-    type: 'ACHIEVEMENT',
-    title: 'Level Udfsfsdfsp!',
-    message: 'Congratulations, you have reached Level 5!',
-    isRead: true,
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4).toISOString(), // 4 weeks ago
-  },
-  {
-    id: 'notif5',
-    type: 'ACHIEVEMENT',
-    title: 'Level Udfsfsdfsp!',
-    message: 'asdasdasd, you have reached Level 5!',
-    isRead: true,
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4).toISOString(), // 4 weeks ago
-  },
-];
-
 function NotificationBell({ parentNotifications, readNotifications }) {
   const [isOpen, setIsOpen] = useState(false);
   const [notifications, setNotifications] = useState(parentNotifications);

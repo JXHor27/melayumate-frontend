@@ -10,7 +10,7 @@ function useScenarioList() {
     useEffect(() => {
         async function fetchData(){
             try{
-                const response = await fetch(`${API_BASE_URL}/scenario/list/${userId}`, {
+                const response = await fetch(`${API_BASE_URL}/scenario/user/${userId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

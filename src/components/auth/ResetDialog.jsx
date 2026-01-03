@@ -108,21 +108,21 @@ function ResetDialog({ open, onClose, onSend, onVerifyCode, onResetPassword }) {
             <Dialog open={open} onClose={handleClose}>
                 {step === "email" && (
                     <>
-                        <DialogTitle>Reset Password</DialogTitle>
-                        <div className="border-t-1 border-black px-6 py-2">
+                        <DialogTitle className="dark:bg-zinc-900 dark:text-white">Reset Password</DialogTitle>
+                        <div className="dark:bg-zinc-900 dark:text-white dark:border-white border-t-1 border-black px-6 py-2">
                             Please enter your email to receive a reset code.
                         </div>
-                        <div className="px-6 pb-2">
+                        <div className="px-6 pb-2 dark:bg-zinc-900 dark:text-white">
                             <input
                                 type="text"
                                 placeholder="Enter your email"
-                                className="w-full p-2 rounded bg-zinc-700 text-white"
+                                className="w-full p-2 rounded bg-zinc-300 text-black dark:bg-zinc-700 dark:text-white"
                                 value={resetEmail}
                                 onChange={e => setResetEmail(e.target.value)}
                             />
                             {error && <div className="text-red-500 text-sm mt-1">{error}</div>}
                         </div>
-                        <DialogActions>
+                        <DialogActions className="dark:bg-zinc-900 dark:text-white">
                             <Button onClick={handleClose} variant="outlined">Cancel</Button>
                             <Button onClick={handleSend} color="primary" variant="contained">Send Code</Button>
                         </DialogActions>
@@ -130,21 +130,21 @@ function ResetDialog({ open, onClose, onSend, onVerifyCode, onResetPassword }) {
                 )}
                 {step === "code" && (
                     <>
-                        <DialogTitle>Enter Reset Code</DialogTitle>
-                        <div className="border-t-1 border-black px-6 py-2">
+                        <DialogTitle className="dark:bg-zinc-900 dark:text-white">Enter Reset Code</DialogTitle>
+                        <div className="dark:bg-zinc-900 dark:text-white dark:border-white border-t-1 border-black px-6 py-2">
                             Please check your email for the code and enter it below.
                         </div>
-                        <div className="px-6 pb-2">
+                        <div className="px-6 pb-2 dark:bg-zinc-900 dark:text-white">
                             <input
                                 type="text"
                                 placeholder="Enter code"
-                                className="w-full p-2 rounded bg-zinc-700 text-white"
+                                className="w-full p-2 rounded bg-zinc-300 text-black dark:bg-zinc-700 dark:text-white"
                                 value={code}
                                 onChange={e => setCode(e.target.value)}
                             />
                             {error && <div className="text-red-500 text-sm mt-1">{error}</div>}
                         </div>
-                        <DialogActions>
+                        <DialogActions className="dark:bg-zinc-900 dark:text-white">
                             <Button onClick={handleClose} variant="outlined">Cancel</Button>
                             <Button onClick={handleVerifyCode} color="primary" variant="contained">Verify</Button>
                         </DialogActions>
@@ -152,15 +152,15 @@ function ResetDialog({ open, onClose, onSend, onVerifyCode, onResetPassword }) {
                 )}
                 {step === "reset" && (
                     <>
-                        <DialogTitle>Set New Password</DialogTitle>
-                        <div className="border-t-1 border-black px-6 py-2">
+                        <DialogTitle className="dark:bg-zinc-900 dark:text-white">Set New Password</DialogTitle>
+                        <div className="dark:bg-zinc-900 dark:text-white dark:border-white border-t-1 border-black px-6 py-2">
                             Enter your new password.
                         </div>
-                        <div className="px-6 pb-2">
+                        <div className="px-6 pb-2 dark:bg-zinc-900 dark:text-white">
                             <input
                                 type={passwordVisible ? "text" : "password"}
                                 placeholder="New password"
-                                className="w-full p-2 rounded bg-zinc-700 text-white"
+                                className="w-full p-2 rounded bg-zinc-300 text-black dark:bg-zinc-700 dark:text-white"
                                 value={newPassword}
                                 onChange={e => setNewPassword(e.target.value)}
                             />
@@ -172,7 +172,7 @@ function ResetDialog({ open, onClose, onSend, onVerifyCode, onResetPassword }) {
                                 style={{ cursor: 'pointer'}}/>
                             </span>
                         </div>
-                        <DialogActions>
+                        <DialogActions className="dark:bg-zinc-900 dark:text-white">
                             <Button onClick={handleClose} variant="outlined">Cancel</Button>
                             <Button onClick={handleResetPassword} color="primary" variant="contained">Reset</Button>
                         </DialogActions>

@@ -13,7 +13,7 @@ const HealthBar = ({ current, max }) => {
         className={`${barColor} h-full rounded-full transition-all duration-500 ease-linear`}
         style={{ width: `${percentage}%` }}
       ></div>
-      <span className="absolute inset-0 text-white font-bold text-sm flex items-center justify-center">
+      <span className="mt-4 sm:mt-8 absolute inset-0 text-gray-900 dark:text-white font-bold text-sm flex items-center justify-center">
         {current} / {max}
       </span>
     </div>

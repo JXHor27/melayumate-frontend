@@ -4,7 +4,7 @@ import NotificationBell from '../notification/NotificationBell';
 function UserProfileCard({username, level, currentExp, expToLevelUp, nextLevel, notifications, readNotifications}) {
 
   //const progressPercentage = expToLevelUp > 0 ? Math.min((currentExp / expToLevelUp) * 100, 100) : 0;
-  const progressPercentage = expToLevelUp > 0 ? Math.min((currentExp / 100) * 100, 100) : 0;
+  const progressPercentage = expToLevelUp > 0 ? Math.min(currentExp , 100) : 0;
   // change 100 to next level exp requirement, such as lvl1 100exp, lvl 2 200exp, etc
   return (
     <div className="bg-gradient-to-br from-purple-600 to-indigo-700 text-white rounded-xl p-3 sm:p-6 shadow-2xl w-full">
@@ -44,7 +44,7 @@ function UserProfileCard({username, level, currentExp, expToLevelUp, nextLevel, 
       <div>
         <div className="flex justify-between items-center mb-3">
           <h3 className="text-md font-semibold text-purple-100">Next Level </h3>
-          <button className="flex items-center bg-purple-800/80 hover:bg-purple-800 text-xs px-3 py-1.5 rounded-md font-semibold shadow transition-colors">
+          <button className="flex items-center bg-purple-900/80 hover:bg-purple-800 text-xs px-3 py-1.5 rounded-md font-semibold shadow transition-colors">
             <FaAngleDoubleRight className="mr-1.5" /> Level {nextLevel}
           </button>
           {/* <button className="text-xs text-purple-300 hover:text-white flex items-center"><FaInfoCircle className="mr-1"/> Levels Info</button> */}

@@ -8,14 +8,14 @@ function NotificationPanel({ notifications, onMarkAllAsRead, onClose }) {
   return (
     <div
       ref={panelRef}
-      className="absolute top-full right-0 mt-2 w-65 md:w-96 bg-gray-800 border border-gray-700 rounded-lg shadow-2xl text-white z-50"
+      className="absolute top-full right-0 mt-2 w-65 md:w-96 bg-slate-100 dark:bg-gray-800 border border-gray-700 rounded-lg shadow-2xl text-black dark:text-white z-50"
     >
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-700">
-        <h3 className="font-bold text-lg">Notifications</h3>
+        <h3 className="dark:font-bold text-lg">Notifications</h3>
         <button
           onClick={onMarkAllAsRead}
-          className="text-sm text-blue-400 hover:underline focus:outline-none cursor-pointer"
+          className="text-sm text-blue-600 dark:text-blue-400 hover:underline focus:outline-none cursor-pointer"
         >
           Mark all as read
         </button>
@@ -28,7 +28,7 @@ function NotificationPanel({ notifications, onMarkAllAsRead, onClose }) {
             <NotificationItem key={notif.notificationId} notification={notif} />
           ))
         ) : (
-          <p className="p-8 text-center text-gray-400">You have no new notifications.</p>
+          <p className="p-8 text-center text-gray-700 dark:text-gray-400">You have no new notifications.</p>
         )}
       </div>
     </div>

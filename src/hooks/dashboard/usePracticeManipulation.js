@@ -5,7 +5,7 @@ function usePracticeManipulation() {
     const { token, userId } = useAuth();
 
     // Record one practice session
-    async function recordPractice (practiceType){
+    async function recordPractice (practiceType, learningSessionId, correctCount = null, totalCount = null) {
         try{
             const response = await fetch(`${API_BASE_URL}/practice`, {
                 method: "POST",
@@ -15,7 +15,10 @@ function usePracticeManipulation() {
                 },
                 body: JSON.stringify({
                     userId: userId,
-                    practiceType: practiceType
+                    practiceType: practiceType,
+                    learningSessionId: learningSessionId,
+                    correctCount: correctCount,
+                    totalCount: totalCount,
                 }),
             });
             if (!response.ok) {

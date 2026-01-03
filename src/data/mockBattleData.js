@@ -7,7 +7,12 @@ export const battleData = {
     name: 'PyroBot',
     type: 'Fire',
     level: 15,
-    maxHp: 80,
+    stats: {
+      hp: 80,
+      atk: 30,
+      def: 20,
+      spd: 25,
+    },
     imageUrl: fireBot, // Fire Bot Image
   },
   opponent: {
@@ -15,7 +20,12 @@ export const battleData = {
     name: 'FerroBot',
     type: 'Steel',
     level: 14,
-    maxHp: 85,
+      stats: {
+      hp: 80,
+      atk: 30,
+      def: 20,
+      spd: 25,
+    },
     imageUrl: steelBot, // Steel Bot Image
   },
   winnerId: 'char1',

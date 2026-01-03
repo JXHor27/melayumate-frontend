@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaHome, FaUser, FaBookOpen, FaVrCardboard, FaShoePrints, FaDog, FaGamepad, FaComments, FaArrowLeft } from "react-icons/fa";
-import branding from  "../../assets/images/branding_v2.png"
+import branding from  "../../assets/images/branding_v3.png"
 import { NavLink } from 'react-router-dom';
+import { HomeIcon, UserIcon, BookOpenIcon, RectangleStackIcon, ChatBubbleBottomCenterTextIcon, DocumentMagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { GiCrossedSwords, GiVintageRobot } from "react-icons/gi";
 
 function SidebarMenu() {
 
@@ -14,10 +16,10 @@ function SidebarMenu() {
     const isActive = location.pathname.startsWith(to);
     return (
       <button className={`flex items-center text-left w-full
-       px-2 py-1 text-base hover:bg-gray-800 rounded cursor-pointer
+       px-2 py-1 text-base hover-bg-slate-500 dark:hover:bg-gray-800 rounded cursor-pointer
        ${isActive 
-            ? 'border-1 border-blue-400 bg-gray-800 text-blue-400' 
-               : 'hover:bg-gray-800 text-gray-200'}
+            ? 'border-1 border-blue-400 bg-slate-300 dark:bg-gray-800 text-blue-600 dark:text-blue-400' 
+               : 'hover:bg-slate-300 dark:hover:bg-gray-800 text-gray-900 dark:text-gray-200'}
           `}
             onClick={() => navigate(to)}
       >
@@ -28,34 +30,34 @@ function SidebarMenu() {
   }
 
   return (
-    <div className={`hidden sm:block w-64 h-screen bg-zinc-900 text-white fixed top-0 left-0 flex flex-col items-start p-6 space-y-1`}>
+    <div className={`hidden sm:block w-64 h-screen bg-slate-50 shadow-2xl dark:bg-zinc-900 text-white fixed top-0 left-0 flex flex-col items-start p-6 space-y-1`}>
       <div className="flex items-center space-x-2 text-yellow-400 text-2xl font-bold mb-4">
         {/* Branding Logo */}
         <img className="h-50% w-70 self-start" src={branding} alt="Branding" />
       </div>
 
-      <div className="text-sm text-gray-400">GENERAL</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">GENERAL</div>
       <nav className="flex flex-col space-y-1 w-full text-lg">
-        <SidebarItem icon={<FaHome size={24}/>} label="Dashboard" to="/dashboard"/>
-        <SidebarItem icon={<FaUser size={24}/>} label="My Profile" to="/profile" />
+        <SidebarItem icon={<HomeIcon className="h-6 w-6" size={24}/>} label="Dashboard" to="/dashboard"/>
+        <SidebarItem icon={<UserIcon className="h-6 w-6" size={24}/>} label="My Profile" to="/profile" />
       </nav>
 
-      <div className="text-sm text-gray-400 mt-4">LEARN</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400 mt-4">LEARN</div>
       <nav className="flex flex-col space-y-1 w-full">
-        <SidebarItem icon={<FaBookOpen size={24}/>} label="Lesson" to="/lesson" />
-        <SidebarItem icon={<FaVrCardboard size={24}/>} label="Flashcard" to="/flashcard" />
-        <SidebarItem icon={<FaShoePrints size={24}/>} label="Learn From Situation" to="/situation"/>
+        <SidebarItem icon={<BookOpenIcon className="h-6 w-6" />} label="Lesson" to="/lesson" />
+        <SidebarItem icon={<RectangleStackIcon className="h-6 w-6" size={24}/>} label="Flashcard" to="/flashcard" />
+        <SidebarItem icon={<ChatBubbleBottomCenterTextIcon  className="h-6 w-6" size={24}/>} label="Learn From Situation" to="/situation"/>
       </nav>
 
-      <div className="text-sm text-gray-400 mt-4">PLAY</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400 mt-4">PLAY</div>
       <nav className="flex flex-col space-y-1 w-full">
-        <SidebarItem icon={<FaDog size={24}/>} label="Character" to="/character"/>
-        <SidebarItem icon={<FaGamepad size={24}/>} label="Game shop" to="/gameshop"/>
+        <SidebarItem icon={<GiVintageRobot size={24}/>} label="Character" to="/character"/>
+        <SidebarItem icon={<GiCrossedSwords size={24}/>} label="Battle" to="/battle"/>
       </nav>
 
-      <div className="text-sm text-gray-400 mt-4">COMMUNITY</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400 mt-4">DOCUMENTATION</div>
       <nav className="flex flex-col space-y-1 w-full">
-        <SidebarItem icon={<FaComments size={24}/>} label="Discussion" to="/discussion"/>
+        <SidebarItem icon={<DocumentMagnifyingGlassIcon className="h-6 w-6" size={24}/>} label="User Guide" to="/guide"/>
       </nav>
       
     </div>

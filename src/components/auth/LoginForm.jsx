@@ -98,16 +98,18 @@ function LoginForm() {
         <form onSubmit={handleLogin} className="space-y-4">
             <input
                 type="text"
+                maxLength={10}
                 placeholder="Username"
-                className="w-full p-3 rounded-lg bg-zinc-700 text-white placeholder-gray-300"
+                className="w-full p-3 rounded-lg bg-zinc-100 text-black placeholder-gray-600 dark:bg-zinc-700 dark:text-white dark:placeholder-gray-300"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
-           <div className="w-full p-3 rounded-lg bg-zinc-700 text-white placeholder-gray-100 flex justify-between items-center focus-within:ring-2" >
+           <div className="w-full p-3 rounded-lg bg-zinc-100 text-black placeholder-gray-600 dark:bg-zinc-700 dark:text-white dark:placeholder-gray-300 flex justify-between items-center focus-within:ring-2" >
               <input
                 type={passwordVisible ? "text" : "password"}
+                maxLength={16}
                 placeholder="Password"
-                className="display:none w-full rounded-full outline-none placeholder-gray-300"
+                className="display:none w-full rounded-full outline-none placeholder-gray-600 dark:placeholder-gray-300"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               /> 
@@ -119,12 +121,12 @@ function LoginForm() {
             </div>
           <button
             type="submit"
-            className="w-full p-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 active:scale-95 active:bg-yellow-500 transition transform cursor-pointer"
+            className="shadow-lg w-full p-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 active:scale-95 active:bg-yellow-500 transition transform cursor-pointer"
           >
             Login
           </button>
 
-          <button onClick={handleForgetPassword} className="ml-auto text-sm text-gray-400 hover:text-gray-200 focus:outline-none cursor-pointer">
+          <button onClick={handleForgetPassword} className="ml-auto text-sm text-gray-900 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
             Forget Password?
           </button>
 

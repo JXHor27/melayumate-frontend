@@ -14,7 +14,7 @@ function useFlashcardListDetail({ listId }) {
     useEffect(() => {
         async function fetchData() {
             try{
-                const listResp = await fetch(`${API_BASE_URL}/lists/list/${listId}`, {
+                const listResp = await fetch(`${API_BASE_URL}/lists/${listId}`, {
                     method: 'GET', 
                     headers: {
                         'Content-Type': 'application/json',
@@ -49,6 +49,8 @@ function useFlashcardListDetail({ listId }) {
                     id: listData.flashcardListId,
                     title: listData.title,
                     description: listData.description,
+                    random: listData.random,
+                    defaultLanguage: listData.defaultLanguage,
                     cards: cardsData,
                 });
                 

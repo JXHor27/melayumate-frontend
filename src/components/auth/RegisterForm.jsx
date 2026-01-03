@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from "../../context/AuthContext"; 
 import SnackbarAlert from "../common/SnackbarAlert";
 import VerifyEmailDialog from "./VerifyEmailDialog";
+import ValidationRequirements from './ValidationRequirements'; 
+
 import useVerifyEmail from "../../hooks/auth/useVerifyEmail";
 function RegisterForm() {
     const { register } = useAuth();
@@ -13,6 +15,7 @@ function RegisterForm() {
     const [registerSuccess, setRegisterSuccess] = useState(false);
     const [usernameError, setUsernameError] = useState(false);
     const [emailError, setEmailError] = useState(false);
+    const [passwordLengthError, setPasswordLengthError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [usernameTakenError, setUsernameTakenError] = useState(false);
     const [emailTakenError, setEmailTakenError] = useState(false);
@@ -23,6 +26,40 @@ function RegisterForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const [validations, setValidations] = useState({
+      usernameLength: false,
+      passwordLength: false,
+      passwordPattern: false,
+      emailDomain: false,
+    });
+
+    const [isFormValid, setIsFormValid] = useState(false);
+
+    // --- VALIDATION LOGIC ---
+  // This effect runs every time the user types in the email or password fields
+  useEffect(() => {
+    const hasUsernameLength = username.trim().length >=3 && username.trim().length <=10;
+    // Check password requirements
+    const hasPasswordLength = password.trim().length >= 8 && password.trim().length <= 16;
+    const hasPasswordPattern = validatePassword(password);
+
+    // Check email requirement
+    const hasEmailDomain = validateEmail(email);
+
+    // Update the validation state
+    const newValidations = {
+      usernameLength: hasUsernameLength,
+      passwordLength: hasPasswordLength,
+      passwordPattern: hasPasswordPattern,
+      emailDomain: hasEmailDomain,
+    };
+    setValidations(newValidations);
+
+    // Check if all validations have passed
+    setIsFormValid(Object.values(newValidations).every(Boolean));
+
+  }, [username, email, password]);
+
     const [showVerifyModal, setShowVerifyModal] = useState(false);
     const [sendCodeSuccess, setSendCodeSuccess] = useState(false);
 
@@ -30,6 +67,7 @@ function RegisterForm() {
         setRegisterSuccess(false);
         setUsernameError(false);
         setEmailError(false);
+        setPasswordLengthError(false);
         setPasswordError(false);
         setUsernameTakenError(false);
         setEmailTakenError(false);
@@ -40,19 +78,19 @@ function RegisterForm() {
     };
     
     function validateEmail(email){
-        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        const regex = /^[A-Za-z0-9._%+-]+@(siswa\.)?um\.edu\.my$/;
         return regex.test(email);
     };
     
     function validatePassword(password){
-        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
         return regex.test(password);
     };
 
     async function handleValidation(e){
         e.preventDefault();
     
-        if (username.trim().length < 3) {
+        if (username.trim().length < 3 || username.trim().length > 10) {
             setUsernameError(true);
             return;
         }
@@ -60,6 +98,11 @@ function RegisterForm() {
         if (!validateEmail(email)) {
             setEmailError(true);
             return;
+        }
+
+        if (password.trim().length < 8 || password.trim().length > 16) {
+          setPasswordLengthError(true);
+          return;
         }
     
         if (!validatePassword(password)) {
@@ -106,25 +149,27 @@ function RegisterForm() {
     
     return (
         <form onSubmit={handleValidation} className="space-y-4">
-            <input
+          <input
                 type="text"
+                maxLength={10}
                 placeholder="Username"
-                className="w-full p-3 rounded-lg bg-zinc-700 text-white placeholder-gray-300"
+                className="w-full px-3 py-2 rounded-lg bg-zinc-100 text-black placeholder-gray-600 dark:bg-zinc-700 dark:text-white dark:placeholder-gray-300"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
+          />
+          <input
                 type="email"
                 placeholder="Email"
-                className="w-full p-3 rounded-lg bg-zinc-700 text-white placeholder-gray-300"
+                className="w-full px-3 py-2 rounded-lg bg-zinc-100 text-black placeholder-gray-600 dark:bg-zinc-700 dark:text-white dark:placeholder-gray-300"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-            />
-           <div className="w-full p-3 rounded-lg bg-zinc-700 text-white placeholder-gray-300 flex justify-between items-center focus-within:ring-2" >
+          />
+          <div className="w-full px-3 py-2 rounded-lg bg-zinc-100 text-black placeholder-gray-600 dark:bg-zinc-700 dark:text-white dark:placeholder-gray-300 flex justify-between items-center focus-within:ring-2" >
               <input
                 type={passwordVisible ? "text" : "password"}
+                maxLength={16}
                 placeholder="Password"
-                className="display:none w-full rounded-full outline-none placeholder-gray-300"
+                className="display:none w-full rounded-full outline-none placeholder-gray-600 dark:placeholder-gray-300"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               /> 
@@ -133,10 +178,11 @@ function RegisterForm() {
                   onClick={togglePasswordVisibility}
                   style={{ cursor: 'pointer'}}/>
                 </span>
-            </div>
+          </div>
+           <ValidationRequirements validations={validations} />
           <button
             type="submit"
-            className="w-full p-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 active:scale-95 active:bg-yellow-500  transition transform cursor-pointer"
+            className="shadow-lg w-full p-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 active:scale-95 active:bg-yellow-500  transition transform cursor-pointer"
           >
             Register
           </button>
@@ -156,7 +202,7 @@ function RegisterForm() {
             anchorOrigin={{ vertical:"top", horizontal:"center" }}
             onClose={handleCloseSnackbar}
             severity="error"
-            message="Username must be at least 3 characters long"
+            message="Username must be between 3 and 10 characters long."
           />
 
           {/* Invalid Email Alert */}
@@ -165,7 +211,16 @@ function RegisterForm() {
             anchorOrigin={{ vertical:"top", horizontal:"center" }}
             onClose={handleCloseSnackbar}
             severity="error"
-            message="Please enter a valid email address"
+            message='Please use a valid "siswa.um.edu.my" email address.'
+          />
+
+           {/* Invalid Password Length Alert */}
+          <SnackbarAlert
+            open={passwordLengthError}
+            anchorOrigin={{ vertical:"top", horizontal:"center" }}
+            onClose={handleCloseSnackbar}
+            severity="error"
+            message="Password must be between 8 and 16 characters long."
           />
 
            {/* Invalid Password Alert */}
@@ -175,8 +230,7 @@ function RegisterForm() {
             autoHideDuration={2500}
             onClose={handleCloseSnackbar}
             severity="error"
-            message="Password must be at least 8 characters long,
-                include uppercase, lowercase, number, and special character."
+            message="Password must include uppercase, lowercase, number, and special character."
           />
 
           {/* Username Taken Alert */}

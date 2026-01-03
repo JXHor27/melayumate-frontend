@@ -4,7 +4,7 @@ function CreateListForm({ open, formData, onFormDataChange, onClose, onSubmit })
     return (
         <div className={`fixed top-0 right-0 h-full w-75 bg-slate-300 dark:bg-zinc-900 text-black dark:text-white shadow-lg transform transition-transform duration-300 z-50 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="p-4 flex justify-between items-start border-b-1 border-zinc-600">
-                <h3 className="text-lg font-semibold">New Flashcard List</h3>
+                <h3 className="text-lg font-semibold">New Flashcard Deck</h3>
                     <button onClick={onClose} className="text-black dark:text-white text-xl hover:text-red-400 cursor-pointer">
                         <FaRegWindowClose size={29}/>
                     </button>
@@ -29,7 +29,7 @@ function CreateListForm({ open, formData, onFormDataChange, onClose, onSubmit })
                 <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-5">{formData.description.length}/60 characters</p>
                     <button
                         onClick={onSubmit}
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full cursor-pointer"
+                        className="shadow-lg dark:shadow-gray-800 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full cursor-pointer"
                     >
                     Submit
                     </button>

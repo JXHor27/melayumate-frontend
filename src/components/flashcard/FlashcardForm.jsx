@@ -28,7 +28,7 @@ function FlashcardForm({open, formData, onFormDataChange, onClose, onSubmit, isE
             <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-5">{formData.malay.length}/25 characters</p>
             <button
                 onClick={onSubmit}
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full cursor-pointer">
+                className="shadow-lg dark:shadow-gray-800 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full cursor-pointer">
                 {isEditing ? "Save" : "Submit"}
             </button>
             </div>

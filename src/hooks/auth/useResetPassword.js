@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "../../api/apiConfig";
+// through email verfication at login page, for unauthenticated user
 function useResetPassword() {
     async function sendResetCode(email) {
         try {

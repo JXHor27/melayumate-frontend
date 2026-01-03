@@ -8,7 +8,7 @@ function useFlashcardLists(){
     useEffect(() => {
         async function fetchData() {
             try{
-                const response = await fetch(`${API_BASE_URL}/lists/${userId}`, {
+                const response = await fetch(`${API_BASE_URL}/lists/user/${userId}`, {
                     method: 'GET', 
                     headers: {
                         'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ import useScenarioDetail from '../../hooks/scenario/useScenarioDetail';
 import DialogueForm from '../../components/scenario/DialogueForm';
 import SnackbarAlert from '../../components/common/SnackbarAlert';
 import ConfirmDialog from '../../components/common/ConfirmDialog';
-const ScenarioEditPage = () => {
+function ScenarioEditPage() {
   const { scenarioId } = useParams();
   const navigate = useNavigate();
 
@@ -113,7 +113,7 @@ const ScenarioEditPage = () => {
     setDialogueAddedSuccess(true);
   }
 
-  async function handleSubmit() {
+  async function handleSubmit() { 
     try {
       if (!formData.english.trim()){
         setEnglishEmptyError(true);
@@ -186,7 +186,7 @@ const ScenarioEditPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-900 text-white p-4 sm:p-6 relative">
+    <div className="min-h-screen bg-slate-100 dark:bg-zinc-900 text-black dark:text-white p-4 sm:p-6 relative">
   
      {/* Create Dialogue Form Overlay */}
       {showForm && (
@@ -200,20 +200,22 @@ const ScenarioEditPage = () => {
       {/* Top buttons */}
       <div className="flex justify-between items-center mb-6">
         <button
+          title ='Close Edit Scenario'
           onClick={() => navigate(`/situation/${scenarioId}`)}
-          className="text-white text-xl hover:text-red-400 cursor-pointer"> 
+          className="text-black dark:text-white text-xl hover:text-red-400 cursor-pointer"> 
             <FaRegWindowClose size={36}/>
         </button>
         <div className="flex gap-2">
           <button
             onClick={handleOpenForm}
-            className="bg-yellow-300 hover:bg-yellow-400 text-black px-4 py-2 font-semibold rounded cursor-pointer"
+            className="shadow-lg dark:shadow-gray-800 bg-yellow-300 hover:bg-yellow-400 text-black px-4 py-2 font-semibold rounded cursor-pointer"
           >
             Add Dialogue
           </button>
           <button
+            title = "Delete Scenario"
             onClick={() => setConfirmDelete(true)}
-            className="text-white px-4 py-2 rounded hover:text-blue-400 cursor-pointer"
+            className="text-black dark:text-white px-4 py-2 rounded hover:text-blue-400 cursor-pointer"
           >
             <FaTrash size={26} />
           </button>
@@ -228,24 +230,24 @@ const ScenarioEditPage = () => {
           value={scenarioData.title}
           onChange={(e) => setScenarioData({ ...scenarioData, title: e.target.value})}
           placeholder="Title"
-          className="w-full text-xl font-bold bg-zinc-700 text-white px-4 py-2 rounded"
+          className="w-full text-xl font-bold bg-slate-300 dark:bg-zinc-700 text-black dark:text-white px-4 py-2 rounded"
         />
-        <p className="text-sm text-zinc-400 mb-3">{scenarioData.title.length}/20 characters</p>
+        <p className="text-sm text-zinc-600 dark:text-zinc-300 mb-3">{scenarioData.title.length}/20 characters</p>
         <input
           type="text"
           value={scenarioData.description}
           maxLength={60}
           onChange={(e) => setScenarioData({ ...scenarioData, description: e.target.value})}
           placeholder="Description (Optional)"
-          className="w-full bg-zinc-700 text-white px-4 py-2 rounded"
+          className="w-full bg-slate-300 dark:bg-zinc-700 text-black dark:text-white px-4 py-2 rounded"
         />
-         <p className="text-sm text-zinc-400 ">{scenarioData.description.length}/60 characters</p>
+         <p className="text-sm text-zinc-600 dark:text-zinc-300 ">{scenarioData.description.length}/60 characters</p>
       </div>
       {/* Save Changes Button */}
       <div className="flex justify-end mb-6">
           <button
               onClick={handleEditScenario}
-              className="bg-zinc-700 hover:bg-zinc-600 text-white font-semibold px-6 py-3 rounded shadow cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="shadow-lg dark:shadow-gray-900 bg-slate-400/50 dark:bg-zinc-700 hover:bg-slate-400 dark:hover:bg-zinc-600 text-gray-900 dark:text-white font-semibold px-6 py-3 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isScenarioUnchanged}>
           Save Changes
           </button>
@@ -254,7 +256,7 @@ const ScenarioEditPage = () => {
       {/* Scenario Questions List */}
       <table className="w-full text-left mt-6 table-fixed">
         <thead>
-            <tr className="text-sm text-gray-300 border-b-2 border-sky-800">
+            <tr className="text-sm text-gray-800 dark:text-gray-300 border-b-2 border-sky-800">
             <th className="py-2 pr-1">Malay</th>
             <th className="py-2 pr-1">English</th>
             <th className="py-2 text-right sm:text-left pr-1">Type</th>

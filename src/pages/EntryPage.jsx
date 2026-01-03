@@ -1,20 +1,21 @@
 import React from "react";
 import DashboardPage from "./dashboard/DashboardPage";
 import LessonPage from "./lesson/LessonPage";
-import LessonQuiz from "../components/LessonQuiz";
+import QuestionPage from "./lesson/QuestionPage";
 import FlashcardPage from "./flashcard/FlashcardPage";
 import FlashcardDetailPage from "./flashcard/FlashcardDetailPage";
 import FlashcardEditPage from "./flashcard/FlashcardEditPage";
+import FlashcardPracticePage from "./flashcard/FlashcardPracticePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./MainLayout";
-import PracticeFlashcards from "./flashcard/PracticeFlashcards";
 import ScenarioPage from "./scenario/ScenarioPage";
 import ProfilePage from "./profile/ProfilePage";
 import CharacterPage from "./game/CharacterPage";
-import GameShopPage from "./game/GameShopPage";
-import DiscussionPage from "./community/DiscussionPage";
+import BattleLobbyPage from "./game/BattleLobbyPage";
+import UserGuidePage from "./documentation/UserGuidePage";
 import DialoguePage from "./scenario/DialoguePage";
 import ScenarioEditPage from "./scenario/ScenarioEditPage";
+import BattleScenePage from "./game/BattleScenePage";
 import { Outlet } from 'react-router-dom';
 
 function EntryPage() {
@@ -39,17 +40,18 @@ function EntryPage() {
           <Route path="/situation" element={<ScenarioPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/character" element={<CharacterPage />} />
-          <Route path="/gameshop" element={<GameShopPage />} />
-          <Route path="/discussion" element={<DiscussionPage />} />
+          <Route path="/battle" element={<BattleLobbyPage />} />
+          <Route path="/guide" element={<UserGuidePage />} />
         </Route>
 
         {/* Routes without Sidebar */}
         <Route path="/flashcard/:listId" element={<FlashcardDetailPage />} />
         <Route path="/flashcard/:listId/edit" element={<FlashcardEditPage />} />
-        <Route path="/flashcard/:listId/practice" element={<PracticeFlashcards />} />
+        <Route path="/flashcard/:listId/practice" element={<FlashcardPracticePage />} />
         <Route path="/situation/:scenarioId" element={<DialoguePage />} />
         <Route path="/situation/:scenarioId/edit" element={<ScenarioEditPage />} />
-        <Route path="/lesson/numbers" element={<LessonQuiz />} />
+        <Route path="/battle/challenge/:battleId" element={<BattleScenePage />} />
+        <Route path="/lesson/:lessonId" element={<QuestionPage />} />
       </Routes>
     </>
    

@@ -55,13 +55,13 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
   function getButtonClasses(option) {
     return activeOption === option
       ? 'bg-blue-500 text-white disabled:opacity-90' // Active state
-      : 'bg-gray-200 text-gray-800 hover:bg-gray-300 cursor-pointer'; // Inactive state
+      : 'bg-gray-50 text-gray-900 hover:bg-gray-200 dark:bg-gray-300 dark:text-gray-800 dark:hover:bg-gray-400 cursor-pointer'; // Inactive state
   };
 
   function getGenderButtonClasses(option) {
     return gender === option
       ? 'bg-blue-500 text-white'
-      : 'bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-pointer';
+      : 'bg-gray-200 text-gray-900 hover:bg-gray-300 cursor-pointer';
   }
 
   function sendBlobToParent(data) {
@@ -188,32 +188,32 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
 
 
   return (
-    <div className="w-full max-w-lg p-3 mx-auto mt-2 bg-zinc-950 rounded-lg shadow-md">
+    <div className="w-full max-w-lg p-3 mx-auto mt-2 mb-2 bg-stone-50 dark:bg-zinc-950 rounded-lg shadow-md">
       {/* Section Header */}
       <div className="flex items-center mb-2">
         <div className="flex-grow border-t border-gray-600"></div>
-        <span className="px-3 text-sm font-semibold text-gray-300">Attach Audio</span>
+        <span className="px-3 text-sm font-semibold text-gray-900 dark:text-gray-300">Attach Audio</span>
         <div className="flex-grow border-t border-gray-600"></div>
       </div>
 
       {/* Segmented Control for Audio Type */}
-      <div className="flex w-full p-2 space-x-1 bg-gray-700 rounded-lg">
+      <div className="flex w-full p-2 space-x-1 bg-stone-400 dark:bg-gray-700 rounded-lg">
         <button
           onClick={() => {setActiveOption('none'); stopRecording(); sendBlobToParent(null); sendRecordBlobToParent(null);}}
-          className={`w-full px-2 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${getButtonClasses('none')}`}
+          className={`shadow-lg w-full px-2 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${getButtonClasses('none')}`}
         >
           No Audio
         </button>
         <button
           onClick={() => {setActiveOption('ai'); setAudioUrl(null); sendRecordBlobToParent(null); stopRecording();}}
-          className={`w-full px-2 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${getButtonClasses('ai')}`}
+          className={`shadow-lg w-full px-2 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${getButtonClasses('ai')}`}
           disabled={activeOption==='ai'}
         >
           AI-Generated
         </button>
         <button
           onClick={() => {setActiveOption('record'); setRecordAudioUrl(null); sendBlobToParent(null); setRecordingStatus('inactive'); stopRecording();}}
-          className={`w-full px-2 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${getButtonClasses('record')}`}
+          className={`shadow-lg w-full px-2 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${getButtonClasses('record')}`}
           disabled={activeOption==='record'}
         >
           Record
@@ -224,15 +224,15 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
       <div className="mt-2"> {/* Added min-height to prevent layout shifts */}
         {/* UI for AI-Generated Audio */}
         {activeOption === 'ai' && (
-          <div className="p-1 text-center bg-gray-700/50 rounded-lg">
+          <div className="p-1 text-center bg-gray-400/50 dark:bg-gray-700/50 rounded-lg">
             <p className="text-sm text-gray-300">
               {/* Choose a voice for the generated audio based on the Malay text. */}
             </p>
             
             {/* Gender Selection */}
             <div className="flex items-center justify-center mb-3 space-x-4">
-              <span className="text-sm font-medium text-gray-200">Voice:</span>
-              <div className="flex p-1 space-x-1 bg-gray-600 rounded-lg">
+              <span className="text-sm font-medium text-gray-900 dark:text-gray-200">Voice:</span>
+              <div className="flex p-1 space-x-1 bg-stone-400 dark:bg-gray-600 rounded-lg">
                 <button 
                   onClick={() => setGender('male')}
                   className={`px-5 py-1 text-sm rounded-md transition-colors ${getGenderButtonClasses('male')}`}
@@ -250,7 +250,7 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
 
             {!audioUrl && (
               <button
-                className="w-full px-4 py-2 font-semibold text-white bg-zinc-700 hover:bg-zinc-600 rounded-lg cursor-pointer"
+                className="shadow-lg w-full px-4 py-2 font-semibold bg-slate-50 dark:bg-zinc-700 hover:bg-slate-200 dark:hover:bg-zinc-600 text-gray-900 dark:text-white rounded-lg cursor-pointer"
                 onClick={handleGenerateAudio}
                 disabled={loading}
               >
@@ -265,13 +265,13 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
 
         {/* UI for User Recording */}
         {activeOption === 'record' && (
-          <div className="p-1 text-center bg-gray-700/50 rounded-lg">
-            {recordingStatus === 'inactive' && (<p className="mb-3 text-sm text-gray-300">
+          <div className="p-1 text-center bg-gray-400/50 dark:bg-gray-700/50 rounded-lg">
+            {recordingStatus === 'inactive' && (<p className="mb-3 text-sm text-gray-900 dark:text-gray-300">
               Record your own voice reading the Malay text.
             </p>
             )}
             {recordingStatus === 'inactive' && (
-            <button className="w-full px-4 py-2 font-semibold text-white bg-zinc-700 hover:bg-zinc-600 rounded-lg cursor-pointer" 
+            <button className="shadow-lg w-full px-4 py-2 font-semibold bg-slate-50 dark:bg-zinc-700 hover:bg-slate-200 dark:hover:bg-zinc-600 text-gray-900 dark:text-white rounded-lg cursor-pointer" 
             onClick={startRecording}>Start Recording</button>
             )}
 
@@ -298,7 +298,7 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
             {recordingStatus === 'finished' && (
              <button 
              onClick={handleTranscribeAudio}
-             className=" w-full px-4 py-2 font-semibold text-white bg-zinc-700 hover:bg-zinc-600 rounded-lg cursor-pointer"
+             className="shadow-lg w-full px-4 py-2 font-semibold bg-slate-50 dark:bg-zinc-700 hover:bg-slate-200 dark:hover:bg-zinc-600 text-gray-900 dark:text-white rounded-lg cursor-pointer"
              disabled={transcribeLoading}>
                {transcribeLoading ? "Transcribing..." : "Transcribe Audio"}
             </button>
@@ -310,7 +310,7 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
         {/* UI for "No Audio" */}
         {activeOption === 'none' && (
               <div className="flex items-center justify-center h-full p-4">
-                  <p className="text-sm text-gray-500">No audio will be attached to this message.</p>
+                  <p className="text-sm text-gray-900 dark:text-gray-300">No audio will be attached to this message.</p>
               </div>
         )}
       </div>

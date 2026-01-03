@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "../../api/apiConfig";
 import { useAuth } from '../../context/AuthContext';
-function useDialogueManipulation( { setScenario, setDialogueConflictError, setDialogueConflictMessage } ) {
+function useDialogueManipulation({ setScenario, setDialogueConflictError, setDialogueConflictMessage }) {
   const { token } = useAuth();
 
   // Add New Dialogue //

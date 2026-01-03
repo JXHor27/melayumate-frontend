@@ -34,22 +34,22 @@ function VerifyEmailDialog({ email, open, onClose, onVerifyCode }) {
 
     return (
         <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Enter Verification Code</DialogTitle>
-                <div className="border-t-1 border-black px-6 py-2">
+            <DialogTitle className="dark:bg-zinc-900 dark:text-white">Enter Verification Code</DialogTitle>
+                <div className="border-t-1 border-black dark:border-white text-black dark:text-white dark:bg-zinc-900 px-6 py-2">
                     Please check your email for the code and enter it below.
                 </div>
-                 <div className="px-6 pb-2">
+                 <div className="px-6 pb-2 dark:bg-zinc-900">
                     <input
                         type="text"
                         placeholder="Enter code"
                         maxLength={6}
-                        className="w-full p-2 rounded bg-zinc-700 text-white"
+                        className="w-full p-2 rounded bg-zinc-300 text-black dark:bg-zinc-700 dark:text-white"
                         value={code}
                         onChange={e => setCode(e.target.value)}
                     />
                     {error && <div className="text-red-500 text-sm mt-1">{error}</div>}
                 </div>
-                <DialogActions>
+                <DialogActions className="dark:bg-zinc-900">
                     <Button onClick={handleClose} variant="outlined">Cancel</Button>
                     <Button onClick={handleVerifyCode} color="primary" variant="contained">Verify</Button>
                 </DialogActions>

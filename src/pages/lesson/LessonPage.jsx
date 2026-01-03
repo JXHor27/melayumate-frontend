@@ -1,81 +1,59 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-
-const lessonData = {
-  1: [
-    { id: 1, title: "Greetings", status: "completed" },
-    { id: 2, title: "Numbers", status: "active" },
-    { id: 3, title: "Family", status: "locked" },
-    { id: 4, title: "Food", status: "locked" },
-  ],
-  2: [
-    { id: 1, title: "Directions", status: "locked" },
-    { id: 2, title: "Shopping", status: "locked" },
-    { id: 3, title: "Colors", status: "locked" },
-  ],
-  // Add levels 3–5 similarly
-};
-
-const statusStyles = {
-  completed: "bg-green-400 border-green-600",
-  active: "bg-yellow-400 border-yellow-600 animate-bounce",
-  locked: "bg-gray-300 border-gray-400 opacity-50",
-};
+import Banner from '../../components/common/Banner';
+import SlidingSidebar from '../../components/common/SlidingSidebar';
+import LessonCard from '../../components/lesson/LessonCard'; 
+import useLessonDetail from "../../hooks/lesson/useLessonDetail";
 
 function LessonPage() {
   const navigate = useNavigate();
-    
-  const [selectedLevel, setSelectedLevel] = useState(1);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { lessons } = useLessonDetail();
 
-  const levels = [1, 2, 3];
-  const lessons = lessonData[selectedLevel] || [];
+  function handleSidebarToggle(){
+    setSidebarOpen(!sidebarOpen);
+  }
 
-  function handleNavigate(){
-    navigate(`/lesson/numbers`); 
+  function handleStartLesson(lessonId) {
+    // Navigate to the individual lesson page where questions will be shown
+    navigate(`/lesson/${lessonId}`);
   }
 
   return (
     <div className="flex">
+      <SlidingSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50" // Added a semi-transparent overlay
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
       {/* Main Content */}
-      <div className="ml-64 flex-1 w-220 bg-zinc-800  min-h-screen py-8">
+      <div className="ml-0 sm:ml-64 flex-1 w-220 bg-slate-100 dark:bg-zinc-800 min-h-screen py-8">
         {/* Lesson Banner */}
-        <div className="flex items-center bg-zinc-700 text-white rounded-md p-4 mb-8 shadow">
-            <p className="ml-4 text-lg">Lesson</p>
-            <p className='ml-auto'>MelayuMate <span className='text-zinc-400'>{'>'} Lesson</span></p>
-        </div> 
+        <Banner header="Lesson" title="Lesson" onOpen={sidebarOpen} handleSidebarToggle={handleSidebarToggle}/>
 
-        {/* Level Selector */}
-        <div className="flex justify-around mb-10 mt-10 px-8">
-          {levels.map((lvl) => (
-            <button
-              key={lvl}
-              onClick={() => setSelectedLevel(lvl)}
-              className={`cursor-pointer px-4 py-2 rounded-full border font-semibold transition md:w-1/6 ${
-                selectedLevel === lvl
-                  ? "bg-yellow-400 text-black"
-                  : "bg-gray-200 text-gray-700 hover:bg-yellow-100"
-              }`}
-            >
-              Level {lvl}
-            </button>
-          ))}
-        </div>
-
-        {/* Checkpoint Layout */}
-        {/* <div className="flex flex-wrap gap-8 justify-start px-8">
-          {lessons.map((lesson) => (
-            <div
-              key={lesson.id}
-              onClick={handleNavigate}
-              className={`cursor-pointer w-24 h-24 rounded-full border-4 flex items-center justify-center shadow-md transition ${statusStyles[lesson.status]}`}
-            >
-              <span className="text-center font-semibold text-white text-sm">
-                {lesson.title}
-              </span>
+        {/* --- NEW: Lesson Content Grid --- */}
+        <div className="p-4 sm:p-8">
+          <div className="max-w-6xl mx-auto">
+            {/* <h1 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">Your Learning Path</h1> */}
+            
+            {/* Grid container for the lesson cards */}
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
+              {lessons.map(lesson => (
+                <LessonCard 
+                  key={lesson.lessonId}
+                  lesson={lesson}
+                  onStart={() => handleStartLesson(lesson.lessonId)}
+                />
+              ))}
             </div>
-          ))}
-        </div> */}
+          </div>
+        </div>
+        {/* ----------------------------- */}
+
       </div>
     </div>
   );

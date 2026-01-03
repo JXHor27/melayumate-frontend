@@ -146,6 +146,7 @@ function FlashcardEditPage() {
       {/* Top buttons */}
       <div className="flex justify-between items-center mb-6 text-black dark:text-white">
         <button
+          title ='Close Edit Deck'
           onClick={() => navigate(`/flashcard/${list.id}`)}
           className="text-xl hover:text-red-400 cursor-pointer"> 
             <FaRegWindowClose size={36}/>
@@ -153,11 +154,12 @@ function FlashcardEditPage() {
         <div className="flex gap-3">
           <button
             onClick={handleOpenForm}
-            className="text-black bg-yellow-300 hover:bg-yellow-400 px-4 py-2 font-semibold rounded cursor-pointer"
+            className="shadow-lg dark:shadow-gray-800 text-black bg-yellow-300 hover:bg-yellow-400 px-4 py-2 font-semibold rounded cursor-pointer"
           >
              Add Card
           </button>
           <button
+            title = "Delete Deck"
             onClick={handleDelete}
             className="px-4 py-2 rounded hover:text-blue-400 cursor-pointer"
           >
@@ -172,7 +174,7 @@ function FlashcardEditPage() {
         onClose={() => setConfirmDelete(false)}
         onConfirm={handleDeleteList}
         title="Confirm Deletion"
-        message="Are you sure you want to delete this list?"
+        message="Are you sure you want to delete this deck?"
       />
 
       {/* Editable list title/description */}
@@ -201,7 +203,7 @@ function FlashcardEditPage() {
      <div className="flex justify-end mb-6">
         <button
             onClick={handleEditList}
-            className="bg-zinc-700 hover:bg-zinc-600 text-white font-semibold px-6 py-3 rounded shadow cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            className="shadow-lg dark:shadow-gray-900 bg-slate-400/50 dark:bg-zinc-700 hover:bg-slate-400 dark:hover:bg-zinc-600 text-gray-900 dark:text-white font-semibold px-6 py-3 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={isListUnchanged}>
         Save Changes
         </button>

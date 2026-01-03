@@ -6,9 +6,9 @@ import Button from "@mui/material/Button";
 function OkDialog({ open, onClose, title, message }) {
     return(
         <Dialog open={open} onClose={onClose}>
-            <DialogTitle>{title}</DialogTitle>
-            <div className="border-t-1 border-black px-6 py-2">{message}</div>
-            <DialogActions>
+            <DialogTitle className="dark:bg-gray-800 dark:text-gray-100">{title}</DialogTitle>
+            <div className="border-t-1 border-black px-6 py-2 dark:border-white dark:bg-gray-800 dark:text-gray-100">{message}</div>
+            <DialogActions className="dark:bg-gray-800 dark:text-gray-100">
                 <Button onClick={onClose} color="primary" variant="contained">OK</Button>
             </DialogActions>
         </Dialog>

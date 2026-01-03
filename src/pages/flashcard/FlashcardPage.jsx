@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Banner from '../../components/common/Banner';
 import SlidingSidebar from '../../components/common/SlidingSidebar';
 import SnackbarAlert from '../../components/common/SnackbarAlert';
-import FlashcardListGrid from '../../components/flashcard/FlashcardListGrid';
+import FlashcardDeck from '../../components/flashcard/FlashcardDeck';
 import CreateListForm from '../../components/flashcard/CreateListForm';
 import useRoot from '../../hooks/common/useRoot';
 import useFlashcardLists from "../../hooks/flashcard/useFlashcardLists";
@@ -79,8 +79,8 @@ function FlashcardPage() {
         <div className="flex justify-end mr-4 mb-6">
             <button
                 onClick={handleOpenForm}
-                className="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 px-4 rounded shadow cursor-pointer">
-            Create List
+                className="shadow-lg dark:shadow-gray-800 bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 px-4 rounded cursor-pointer">
+            Create Deck
             </button>
         </div>
 
@@ -96,13 +96,13 @@ function FlashcardPage() {
         />
 
        {/* Flashcard Lists Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="mx-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
         {lists.map((list) => (
-          <FlashcardListGrid
-            key={list.flashcardListId}
-            list={list}
-            onOpen={(id) => navigate(`/flashcard/${id}`)}
-          />
+           <FlashcardDeck
+                  key={list.flashcardListId}
+                  list={list}
+                  onOpen={(id) => navigate(`/flashcard/${id}`)}
+                />
         ))}
       </div>
 

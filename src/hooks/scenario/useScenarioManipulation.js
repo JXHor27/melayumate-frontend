@@ -66,7 +66,7 @@ function useScnarioManipulation( { setScenarioList } ) {
     // (avoid using initial useEffect as API calls are duplicated)
     async function fetchScenarios(){
          try{
-            const response = await fetch(`${API_BASE_URL}/scenario/list/${userId}`, {
+            const response = await fetch(`${API_BASE_URL}/scenario/user/${userId}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

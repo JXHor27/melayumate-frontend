@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react';
 import { API_BASE_URL } from "../../api/apiConfig";
 import { useAuth } from '../../context/AuthContext';
-function useDailyStat(){
+function useUserDetail(){
     const { token, userId } = useAuth();
-    const [flashcardDone, setFlashcardDone] = useState(0);
-    const [dialogueDone, setDialogueDone] = useState(0);
-    const [lessonDone, setLessonDone] = useState(0)
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        oldPassword: "",
+        password: "",
+        confirmPassword: "",
+    });
 
     useEffect(() => {
-        async function fetchDailyStat() {
+        async function fetchUserDetail() {
             try{
-                const response = await fetch(`${API_BASE_URL}/practice/${userId}`, {
+                const response = await fetch(`${API_BASE_URL}/auth/user/${userId}`, {
                     method: 'GET', 
                     headers: {
                         'Content-Type': 'application/json',
@@ -24,18 +28,21 @@ function useDailyStat(){
                     return;
                 }
                 const result = await response.json();
-                console.log("Daily stat: ", result);
-                setFlashcardDone(result.flashcardDone);
-                setDialogueDone(result.dialogueDone);
-                setLessonDone(result.lessonDone);
+                console.log("User details: ", result);
+                setFormData({
+                    ...formData,
+                    username: result.username,
+                    email: result.email,
+                });
+
             }
             catch(e) { 
-                console.error("Failed to fetch daily goal:", error);
+                console.error("Failed to fetch user details:", error);
             }
         }
-        fetchDailyStat();
+        fetchUserDetail();
     }, []);
-    return { flashcardDone, dialogueDone, lessonDone };
+    return { formData, setFormData };
 }
 
-export default useDailyStat;
+export default useUserDetail;

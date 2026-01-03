@@ -153,7 +153,7 @@ function useFlashcardManipulation({ setList, setErrorMessage }) {
             console.error("Failed to fetch cards:", error);
         }
     }
-   
+
     return { addCard, editCard, deleteCard, fetchCards };
 }
 
