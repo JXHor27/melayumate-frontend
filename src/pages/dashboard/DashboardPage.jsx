@@ -192,7 +192,7 @@ function DashboardPage() {
         <ChatWidget avatar={imageUrl} currentLevel={currentLevel}/>
         
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-5 gap-8 px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-1 gap-8 px-4 sm:px-6">
           {/* Left Column: User Profile */}
           <div className="xl:col-span-3">
             <UserProfileCard username={username} {...userData} notifications={notifications} readNotifications={readNotifications}/>
