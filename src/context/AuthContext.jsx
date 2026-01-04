@@ -24,14 +24,14 @@ export const AuthProvider = ({ children }) => {
 
          if (!isExpired) {
           // Token is valid, set the auth state
-          console.log("Valid token found, logging in..");
+          //console.log("Valid token found, logging in..");
           setToken(storedToken);
           setUserId(decodedUser.userId);
           setUsername(decodedUser.sub)
           setIsAuthenticated(true);
         } else {
           // Token is expired, remove it
-          console.log("Token expired, logging out.");
+          //console.log("Token expired, logging out.");
           sessionStorage.removeItem('token');
         }
       } catch (error) {
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     // (e.g., another tab logs in/out)
     const handleStorageChange = () => {
       const storedToken = sessionStorage.getItem('token');
-      console.log(storedToken)
+      //console.log(storedToken)
       setToken(storedToken);
       setIsAuthenticated(!!storedToken);
     };
@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }) => {
       const { token } = data;
       setToken(token);
       const decodedToken = jwtDecode(token);
-      console.log("token: ", decodedToken);
+      //console.log("token: ", decodedToken);
       const { userId, sub } = decodedToken;
       setUserId(userId);
       setUsername(sub);
