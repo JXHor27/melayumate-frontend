@@ -28,7 +28,7 @@ function useQuestionDetail({ lessonId }) {
                     ...question, 
                     attributes: JSON.parse(question.attributes) 
                 }));
-                console.log("Questions practice : ", parsedQuestions);
+                //console.log("Questions practice : ", parsedQuestions);
                 setQuestions(parsedQuestions);
                 
             } catch(error) { 

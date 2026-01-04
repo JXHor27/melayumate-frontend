@@ -22,7 +22,7 @@ function useMarkNotificationRead() {
                 return null;
             }
             const result = response.status;
-            console.log("Notifications marked as read: ", result);
+            //console.log("Notifications marked as read: ", result);
             return result;
         } catch (error) {
             console.error("Failed to read notifications:", error);

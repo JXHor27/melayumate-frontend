@@ -32,7 +32,7 @@ function usePrimaryCharacterDetail() {
                 }
                 
                 const primaryCharacter = await response.json();
-                console.log("Primary character: ", primaryCharacter);
+                //console.log("Primary character: ", primaryCharacter);
                 setPrimaryCharacter(primaryCharacter);
                 return primaryCharacter;
 

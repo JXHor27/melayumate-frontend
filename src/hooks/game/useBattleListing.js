@@ -23,7 +23,7 @@ function useBattleListing({ setPrimaryCharacter }) {
         return;
       }
       const result = response.status;
-      console.log("Character listed successfully:", result);
+      //console.log("Character listed successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to list character:", error);
@@ -51,7 +51,7 @@ function useBattleListing({ setPrimaryCharacter }) {
         return;
       }
       const result = response.status;
-      console.log("Character unlisted successfully:", result);
+      //console.log("Character unlisted successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to unlist primary character:", error);
@@ -80,7 +80,7 @@ function useBattleListing({ setPrimaryCharacter }) {
       }
                 
       const primaryCharacter = await response.json();
-      console.log("Primary character: ", primaryCharacter);
+      //console.log("Primary character: ", primaryCharacter);
       setPrimaryCharacter(primaryCharacter);
       return primaryCharacter;
       } catch (error) {

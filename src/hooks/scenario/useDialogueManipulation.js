@@ -36,7 +36,7 @@ function useDialogueManipulation({ setScenario, setDialogueConflictError, setDia
         return null;
       }
       const newDialogue = await response.json(); 
-      console.log(newDialogue);
+      //console.log(newDialogue);
       return newDialogue;
     } catch (error) {
         console.error("An error occurred while adding the dialogue:", error);
@@ -59,7 +59,7 @@ function useDialogueManipulation({ setScenario, setDialogueConflictError, setDia
             console.error(message);
             return;
         }
-        console.log("Dialogue deleted: ", response.status);
+        //console.log("Dialogue deleted: ", response.status);
         setScenario(prev => ({
             ...prev,
             dialogues: prev.dialogues.filter(dialogue => dialogue.dialogueId !== dialogueId)

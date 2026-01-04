@@ -6,7 +6,7 @@ function useAudioFileManipulation() {
 
     async function uploadAudio(audioBlob) {
         if (audioBlob == null) {
-            console.log("No audio blob provided for upload.");
+            //console.log("No audio blob provided for upload.");
             return null;
         }
         // 1. Create a new File object from the Blob
@@ -36,7 +36,7 @@ function useAudioFileManipulation() {
 
             // Here, we're expecting the backend to return the objectKey of the uploaded file.
             const objectKey = await response.text();
-            console.log("File uploaded successfully. objectKey:", objectKey);
+            //console.log("File uploaded successfully. objectKey:", objectKey);
 
             // You can now do something with the objectKey, like saving it to your state
             return objectKey;
@@ -48,10 +48,10 @@ function useAudioFileManipulation() {
 
     async function deleteAudio(objectKey) {
             if (objectKey == null) {
-                console.log("No audio to delete.");
+                //console.log("No audio to delete.");
                 return;
             }
-            console.log("Deleting audio with objectKey:", objectKey);
+            //console.log("Deleting audio with objectKey:", objectKey);
             try {
                 const response = await fetch(`${API_BASE_URL}/files/${objectKey}`, {
                     method: "DELETE",
@@ -60,14 +60,14 @@ function useAudioFileManipulation() {
                         "Authorization": `Bearer ${token}`
                     }
                 });
-                console.log("Audio deleted: ", response.status);
+                //console.log("Audio deleted: ", response.status);
                 if (!response.ok) {
                     const errorData = await response.json();
                     const message = `An error occurred: ${errorData.message}`;  
                     console.error(message);
                     throw new Error(message);
                 }
-                 console.log("Audio deleted: ", response.status);
+                //console.log("Audio deleted: ", response.status);
             } catch (error) {
                 console.error("Error deleting audio:", error);
             }

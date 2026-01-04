@@ -28,7 +28,7 @@ function usePracticeManipulation() {
                 return null;
             }
             const newRecord = await response.json();
-            console.log("New practice record added: ", newRecord);
+            //console.log("New practice record added: ", newRecord);
             return newRecord;
         }
         catch(error) {
@@ -58,7 +58,7 @@ function usePracticeManipulation() {
             }
                 
             const cardsData = await response.json();
-            console.log("card data: ", cardsData);
+            //console.log("card data: ", cardsData);
             setList(prev => ({ 
                 ...prev, 
                 cards: cardsData 

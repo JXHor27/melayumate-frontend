@@ -24,7 +24,7 @@ function useLessonDetail() {
                 }
 
                 const lessons = await response.json();
-                console.log("Lesson practice : ", lessons);
+                //console.log("Lesson practice : ", lessons);
                 setLessons(lessons);
                 
             } catch(error) { 

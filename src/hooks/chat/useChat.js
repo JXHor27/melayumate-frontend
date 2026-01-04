@@ -25,13 +25,13 @@ function useChat(){
                     return;
                 }
                 const result = await response.json();
-                console.log("Messages: ", result);
+                //console.log("Messages: ", result);
                 setMessages(prevMessages => {
                     if (JSON.stringify(prevMessages) !== JSON.stringify(result)) {
-                        console.log("New chat messages fetched, updating state.");
+                        //console.log("New chat messages fetched, updating state.");
                         return result;
                     } 
-                    console.log(" No changes, return the old state.");
+                    //console.log(" No changes, return the old state.");
                     return prevMessages; // No changes, return the old state
                 });
             }
@@ -48,7 +48,7 @@ function useChat(){
         // This function is returned by useEffect and will be called when the
         // component unmounts or when the dependencies change.
         return () => {
-            console.log("Cleaning up chat interval.");
+            //console.log("Cleaning up chat interval.");
             clearInterval(intervalId); // This prevents memory leaks!
         };
 
@@ -79,7 +79,7 @@ function useChat(){
                 return null;
             }
             const newMessage = await response.json();
-            console.log("New message added: ", newMessage);
+            //console.log("New message added: ", newMessage);
              // "Optimistic update": Add the new message to our local state immediately
             // so the user sees their message right away, without waiting for the next poll.
             setMessages(prevMessages => [...prevMessages, newMessage]);

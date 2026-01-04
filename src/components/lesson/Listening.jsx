@@ -69,7 +69,7 @@ function Listening({ question, onSelectAnswer, answerStatus, userAnswer }) {
 
   // --- AUDIO PLAYBACK LOGIC ---
   useEffect(() => {
-    console.log("Setting up audio with key:", attributes.reference_audio_url);
+    //console.log("Setting up audio with key:", attributes.reference_audio_url);
     // Construct the full audio URL from the object key
     // In a real app, this base URL would come from a config file or context
     // const s3BaseUrl = 'https://your-s3-bucket.s3.your-region.amazonaws.com';

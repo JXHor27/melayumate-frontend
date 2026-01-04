@@ -24,7 +24,7 @@ function usePracticeStats(){
                     return;
                 }
                 const result = await response.json();
-                console.log("Practice stats: ", result);
+                //console.log("Practice stats: ", result);
                 setFlashcardDone(result.flashcardDone);
                 setDialogueDone(result.dialogueDone);
                 setLessonDone(result.lessonDone);

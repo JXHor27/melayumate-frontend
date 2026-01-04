@@ -29,9 +29,9 @@ function useMalayaSpeechService() {
     }
 
     async function transcribeAudio(audioBlob) {
-        console.log("Transcribing audio blob:", audioBlob);
+        //console.log("Transcribing audio blob:", audioBlob);
         if (audioBlob == null) {
-            console.log("No audio blob provided for transcription.");
+            //console.log("No audio blob provided for transcription.");
             return null;
         }
         // Create a File object from the Blob, giving it a name
@@ -52,7 +52,7 @@ function useMalayaSpeechService() {
                 body: formData
             });
             if (!response.ok) {
-                console.log(response.statusText)
+                //console.log(response.statusText)
                 return null;
             }
             const transcription = await response.text();

@@ -43,8 +43,8 @@ function useFlashcardListDetail({ listId }) {
                 
                 const listData = await listResp.json();
                 const cardsData = await cardsResp.json();
-                console.log("list data: ", listData);
-                console.log("card data: ", cardsData);
+                //console.log("list data: ", listData);
+                //console.log("card data: ", cardsData);
                 setList({
                     id: listData.flashcardListId,
                     title: listData.title,

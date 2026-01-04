@@ -35,7 +35,7 @@ function useFlashcardListManipulation({ setLists, setErrorMessage }) {
                 return null;
             }
             const newList = await response.json();
-            console.log("New list added: ", newList);
+            //console.log("New list added: ", newList);
             setLists((prevLists) => [
                 ...prevLists,
                 newList
@@ -74,7 +74,7 @@ function useFlashcardListManipulation({ setLists, setErrorMessage }) {
                 return null;
             }
             const updatedList = await response.json();
-            console.log("List updated: ", updatedList);
+            //console.log("List updated: ", updatedList);
             return updatedList;
         } catch (error) {
             console.error("Failed to edit list:", error);
@@ -103,7 +103,7 @@ function useFlashcardListManipulation({ setLists, setErrorMessage }) {
                 console.error(message);
                 return null;
             }
-            console.log("List deleted: ", response.status);
+            //console.log("List deleted: ", response.status);
             return response.status;
         } catch (error) {
             console.error("Failed to delete list:", error);
@@ -129,7 +129,7 @@ function useFlashcardListManipulation({ setLists, setErrorMessage }) {
                 return;
             }
             const records = await response.json();
-            console.log("Card lists: ", records);
+            //console.log("Card lists: ", records);
             setLists(records);
         }
         catch(error) { 
@@ -162,7 +162,7 @@ function useFlashcardListManipulation({ setLists, setErrorMessage }) {
                 console.error(message);
                 return null;
             }
-            console.log("Cards order updated: ", response.status);
+            //console.log("Cards order updated: ", response.status);
             return response.status;
         } catch (error) {
             console.error("Failed to update cards order:", error);
@@ -194,7 +194,7 @@ function useFlashcardListManipulation({ setLists, setErrorMessage }) {
                 console.error(message);
                 return null;
             }
-            console.log("Default language updated: ", response.status);
+            //console.log("Default language updated: ", response.status);
             return response.status;
         } catch (error) {
             console.error("Failed to update deck language:", error);

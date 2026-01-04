@@ -42,7 +42,7 @@ function ResetDialog({ open, onClose, onSend, onVerifyCode, onResetPassword }) {
         setError("");
         try {
             const result = await onSend(resetEmail);
-            console.log(result)
+            //console.log(result)
             if (!result) {
                 setError("Failed to send reset code.");
                 return;
@@ -61,7 +61,7 @@ function ResetDialog({ open, onClose, onSend, onVerifyCode, onResetPassword }) {
         setError("");
         try {
             const result = await onVerifyCode(resetEmail, code);
-            console.log(result)
+            //console.log(result)
             if (!result) {
                 setError("Invalid or expired code.");
                 return;

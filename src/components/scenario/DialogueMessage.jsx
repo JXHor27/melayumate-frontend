@@ -7,7 +7,7 @@ const DialogueMessage = ({ sender, text, translation, avatarSrc, userInitial, au
 
   // Function to play audio
   const playAudio = () => {
-    console.log("Audio source:", audioSrc);
+    //console.log("Audio source:", audioSrc);
 
     if (audioSrc) {
       const audio = new Audio(audioSrc);

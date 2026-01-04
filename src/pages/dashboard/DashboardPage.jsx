@@ -146,7 +146,7 @@ function DashboardPage() {
   }
 
   async function handleSaveGoal() {
-    console.log("Saving goal:", goalInput);
+    //console.log("Saving goal:", goalInput);
     if (!goalInput.toString().trim()){
         setGoalEmptyError(true);
         return;

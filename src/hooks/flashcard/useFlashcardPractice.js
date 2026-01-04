@@ -31,7 +31,7 @@ function useFlashcardPractice({ listId }) {
                 }
 
                 const data = await response.json();
-                console.log("flashcard practice : ", data);
+                //console.log("flashcard practice : ", data);
                 setList({
                     id: data.flashcardListId,
                     title: data.title,

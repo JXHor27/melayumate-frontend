@@ -24,7 +24,7 @@ function useScenarioList() {
                     return;
                 }
                 const scenarios = await response.json();
-                console.log("All scenarios:", scenarios);
+                //console.log("All scenarios:", scenarios);
                 setScenarioList(scenarios);
             }
             catch (error) {

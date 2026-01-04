@@ -8,7 +8,7 @@ function NotificationBell({ parentNotifications, readNotifications }) {
   const [notifications, setNotifications] = useState(parentNotifications);
 
   useEffect(() => {
-      console.log("Notifications updated:", parentNotifications)
+      //console.log("Notifications updated:", parentNotifications)
       setNotifications(parentNotifications);
   }, [parentNotifications]);
 

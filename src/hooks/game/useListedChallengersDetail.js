@@ -23,7 +23,7 @@ function useListedChallengersDetail() {
                 }
                 
                 const listedChallengers = await response.json();
-                console.log("Listed challengers: ", listedChallengers);
+                //console.log("Listed challengers: ", listedChallengers);
                 setListedChallengers(listedChallengers);
                 
             } catch (error) {

@@ -28,7 +28,7 @@ function useUserDetail(){
                     return;
                 }
                 const result = await response.json();
-                console.log("User details: ", result);
+                //console.log("User details: ", result);
                 setFormData({
                     ...formData,
                     username: result.username,

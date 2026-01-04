@@ -142,7 +142,7 @@ function RegisterForm() {
         }
 
         const result = await response.json();
-        console.log(result);
+        //console.log(result);
         setRegisterSuccess(true);
         return result;
     };

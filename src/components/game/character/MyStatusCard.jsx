@@ -8,10 +8,6 @@ const MyStatusCard = ({ character, onList, onUnlist }) => {
 
   const isListed = character.characterStatus === 'LISTED_FOR_BATTLE';
 
-  useEffect(() => {
-    console.log(isListed);
-  }, [])
-
   return (
     // The gradient border works well in both themes.
     <div className="mx-4 relative p-1 bg-gradient-to-br from-purple-600 via-blue-500 to-yellow-400 rounded-2xl shadow-lg">

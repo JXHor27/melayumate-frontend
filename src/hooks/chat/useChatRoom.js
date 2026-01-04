@@ -27,7 +27,7 @@ function useChatRoom() {
                     return;
                 }
                 const result = await response.json();
-                console.log("Messages: ", result);
+                //console.log("Messages: ", result);
                 setMessages(result);
                 }
             catch(error) { 
@@ -44,7 +44,7 @@ function useChatRoom() {
                 Authorization: `Bearer ${token}`
             },
             onConnect: () => {
-                console.log('Connected to WebSocket!');
+                //console.log('Connected to WebSocket!');
                 // --- 3. Subscribe to the public topic ---
                 client.subscribe('/topic/messages', (message) => {
                     const newMessage = JSON.parse(message.body);

@@ -29,7 +29,7 @@ const BattleLobbyPage = () => {
   }
 
   async function handleListCharacter() {
-    console.log("ACTION: Listing character for battle...");
+    //console.log("ACTION: Listing character for battle...");
     const result = await listCharacter(primaryCharacter.characterId);
     if (!result) {
       return;
@@ -38,7 +38,7 @@ const BattleLobbyPage = () => {
   };
 
   async function handleUnlistCharacter() {
-    console.log("ACTION: Unlisting character...");
+    //console.log("ACTION: Unlisting character...");
     const result = await unlistCharacter(primaryCharacter.characterId);
     if (!result) {
       return;
@@ -55,7 +55,7 @@ const BattleLobbyPage = () => {
     if (!result) {
       return;
     }
-    console.log("ACTION: Starting battle with ID", result.battleId);
+    //console.log("ACTION: Starting battle with ID", result.battleId);
     navigate(`/battle/challenge/${result.battleId}`);
   };
 

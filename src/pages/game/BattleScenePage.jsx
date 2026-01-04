@@ -45,7 +45,7 @@ function BattleScenePage() {
   useEffect(() => {
     fetchBattleLog(battleId)
       .then(data => {
-        console.log("Battle data received:", data);
+        //console.log("Battle data received:", data);
           setBattleData(data);
           setPlayerHp(data.player.stats.hp);
           setOpponentHp(data.opponent.stats.hp);

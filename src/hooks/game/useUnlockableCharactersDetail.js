@@ -23,7 +23,7 @@ function useUnlockableCharactersDetail({ currentLevel }) {
                     return;
                 }
                 const templates = await response.json();
-                console.log("Characters template: ", templates);
+                //console.log("Characters template: ", templates);
                
                 setCharactersTemplate(templates);
                 

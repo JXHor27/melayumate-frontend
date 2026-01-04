@@ -39,8 +39,8 @@ function SentenceBuilding({ question, onSelectAnswer, answerStatus }) {
   useEffect(() => {
     // We only want to communicate with the parent in practice mode.
     if (isReviewMode || answerStatus !== 'unanswered') return;
-    console.log(constructedSentence);
-    console.log(answerStatus)
+    //console.log(constructedSentence);
+    //console.log(answerStatus)
     // 1. Join the array of word objects into a final sentence string.
     const finalSentence = constructedSentence.map(w => w.text).join(' ');
 

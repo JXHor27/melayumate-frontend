@@ -27,7 +27,7 @@ function useQuestionManipulation() {
         return;
       }
       const result = await response.json();
-      console.log("Question answered successfully:", result);
+      //console.log("Question answered successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to answer question:", error);
@@ -53,7 +53,7 @@ function useQuestionManipulation() {
         return;
       }
       const result = await response.json();
-      console.log("Battle log fetched successfully:", result);
+      //console.log("Battle log fetched successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to fetch battle log:", error);

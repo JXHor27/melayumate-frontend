@@ -39,17 +39,17 @@ function LoginForm() {
 
     function handleForgetPassword(e) {
       e.preventDefault();
-      console.log("Forget Password Clicked");
+      //console.log("Forget Password Clicked");
       setShowResetModal(true);
     }
 
     async function handleSendCode(email) {
       const result = await sendResetCode(email);
-      console.log(result);
+      //console.log(result);
       if (!result) {
         return null;
       }
-      console.log("Reset code sent to:", email);
+      //console.log("Reset code sent to:", email);
       setSendCodeSuccess(true);
       return result;
     }
@@ -59,7 +59,7 @@ function LoginForm() {
       if (!result) {
         return false;
       }  
-      console.log("Reset code verified for:", email);
+      //console.log("Reset code verified for:", email);
       return result;
     }
 
@@ -68,7 +68,7 @@ function LoginForm() {
        if (!result) {
         return false;
       }  
-      console.log("Reset password for:", email);
+      //console.log("Reset password for:", email);
       return result;
     }
 

@@ -25,7 +25,7 @@ function useScnarioManipulation( { setScenarioList } ) {
                 return;
             }
             const createdScenario = await response.json();
-            console.log("Created scenario:", createdScenario);
+            //console.log("Created scenario:", createdScenario);
         }
         catch (error) {
             console.error("Failed to create scenario:", error);
@@ -54,7 +54,7 @@ function useScnarioManipulation( { setScenarioList } ) {
                 return;
             }
             const updatedScenario = await response.json();
-            console.log("Updated scenario:", updatedScenario);
+            //console.log("Updated scenario:", updatedScenario);
         }
         catch (error) {
             console.error("Failed to edit scenario:", error);
@@ -81,7 +81,7 @@ function useScnarioManipulation( { setScenarioList } ) {
             }
             const scenarios = await response.json();
             setScenarioList(scenarios);
-            console.log("All scenarios:", scenarios);
+            //console.log("All scenarios:", scenarios);
         }
         catch (error) {
             console.error("Failed to fetch scenarios:", error);
@@ -104,7 +104,7 @@ function useScnarioManipulation( { setScenarioList } ) {
                 console.error(message);
                 return;
             }
-            console.log("Deleted scenario:", scenarioId);
+            //console.log("Deleted scenario:", scenarioId);
         }
         catch (error) {
             console.error("Failed to delete scenario:", error);

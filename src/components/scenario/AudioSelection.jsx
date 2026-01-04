@@ -39,12 +39,12 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
   const { generateAudio, transcribeAudio } = useMalayaSpeechService();
 
   useEffect(() => {
-    console.log("Audio Object URL:", audioObjectUrl)
+    //console.log("Audio Object URL:", audioObjectUrl)
     setAudioUrl(audioObjectUrl);
   }, [audioObjectUrl]);
 
    useEffect(() => {
-    console.log("Record URL:", recordUrl)
+    //console.log("Record URL:", recordUrl)
     if(recordUrl===null)
       setRecordingStatus('inactive')
     setRecordAudioUrl(recordUrl);
@@ -97,8 +97,8 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
     const url = URL.createObjectURL(blob);
     sendBlobToParent(blob);
     sendObjectUrltoParent(url);
-    console.log(blob);
-    console.log(url);
+    //console.log(blob);
+    //console.log(url);
     setAudioUrl(url);
     setLoading(false);
   };
@@ -114,7 +114,7 @@ function AudioSelection({ malayText, generateBlobData, generateObjectUrl, audioO
     setTranscriptionResult(transcribedText);
     setAudioTranscriptionResult(true);
     if (transcribedText) {
-      console.log("Transcription result:", transcribedText);
+      //console.log("Transcription result:", transcribedText);
     } else {
       console.error("Transcription failed.");
     }

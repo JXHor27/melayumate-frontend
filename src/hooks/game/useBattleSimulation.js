@@ -26,7 +26,7 @@ function useBattleSimulation() {
         return;
       }
       const result = await response.json();
-      console.log("Battle started successfully:", result);
+      //console.log("Battle started successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to start battle:", error);
@@ -51,7 +51,7 @@ function useBattleSimulation() {
         return;
       }
       const result = response.status;
-      console.log("Battle deleted successfully:", result);
+      //console.log("Battle deleted successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to delete battle:", error);
@@ -76,7 +76,7 @@ function useBattleSimulation() {
         return;
       }
       const result = await response.json();
-      console.log("Battle log fetched successfully:", result);
+      //console.log("Battle log fetched successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to fetch battle log:", error);

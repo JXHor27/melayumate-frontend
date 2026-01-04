@@ -25,7 +25,7 @@ function useRoot() {
                     return; 
                 }
                 const message = await response.text();
-                console.log("Ping message: ", message);
+                //console.log("Ping message: ", message);
             }
             catch (error) {
                 console.error("Failed to fetch ping:", error);

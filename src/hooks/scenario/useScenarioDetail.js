@@ -42,8 +42,8 @@ function useScenarioDetail({ scenarioId }) {
                 
                 const scenarioData = await scenarioResp.json();
                 const dialogueData = await dialogueResp.json();
-                console.log("scenario data: ", scenarioData);
-                console.log("dialogue data: ", dialogueData);
+                //console.log("scenario data: ", scenarioData);
+                //console.log("dialogue data: ", dialogueData);
                 for (var dialogue of dialogueData) {
                     // Get the first four lowercase words, "ques" or "resp"
                     dialogue.dialogueType = dialogue.dialogueType.toLowerCase().slice(0,4); 

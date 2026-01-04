@@ -22,7 +22,7 @@ function useFlashcardLists(){
                     return;
                 }
                 const records = await response.json();
-                console.log("Card lists: ", records);
+                //console.log("Card lists: ", records);
                 setLists(records);
             }
             catch(error) { 

@@ -129,13 +129,13 @@ function ScenarioEditPage() {
       }
       var audioUrl = null;
       if (!audioBlob && !recordAudioBlob) {
-        console.log("No audio to upload.");
+        //console.log("No audio to upload.");
         audioUrl = null;
       } else if (!audioBlob && recordAudioBlob) {
-        console.log("Uploading recorded audio to S3...");
+        //console.log("Uploading recorded audio to S3...");
         audioUrl = await uploadAudio(recordAudioBlob);
       } else{
-        console.log("Uploading AI-generated audio to S3...");
+        //console.log("Uploading AI-generated audio to S3...");
         audioUrl = await uploadAudio(audioBlob);
       }
 

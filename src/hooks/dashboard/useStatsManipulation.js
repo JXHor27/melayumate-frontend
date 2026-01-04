@@ -26,7 +26,7 @@ function useStatsManipulation() {
                 return null;
             }
             const result = await response.json();
-            console.log("New goal added: ", result);
+            //console.log("New goal added: ", result);
             return result;
         } catch (error) {
             console.error("Failed to create goal:", error);
@@ -53,7 +53,7 @@ function useStatsManipulation() {
                 return null;
             }
             const result = response.status;
-            console.log("EXP added result status code: ", result);
+            //console.log("EXP added result status code: ", result);
             return result;
         } catch (error) {
             console.error("Failed to add EXP:", error);
@@ -81,7 +81,7 @@ function useStatsManipulation() {
                 return;
             }
             const result = await response.json();
-            console.log("Fetched game stats: ", result);
+            //console.log("Fetched game stats: ", result);
             return result;
             // setDailyGoal(result.dailyGoal);
         }

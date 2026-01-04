@@ -26,7 +26,7 @@ function useGameStats(){
                     return;
                 }
                 const result = await response.json();
-                console.log("Game stats: ", result);
+                //console.log("Game stats: ", result);
                 setDailyGoal(result.dailyGoal);
                 setCurrentLevel(result.currentLevel);
                 setCurrentExp(result.currentExp);

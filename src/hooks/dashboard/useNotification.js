@@ -22,7 +22,7 @@ function useNotification(){
                     return;
                 }
                 const result = await response.json();
-                console.log("Notifications: ", result);
+                //console.log("Notifications: ", result);
                 setNotifications(result);
             }
             catch(error) { 

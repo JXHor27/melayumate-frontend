@@ -34,7 +34,7 @@ function useFlashcardManipulation({ setList, setErrorMessage }) {
                 return null;
             }
             const newCard = await response.json();
-            console.log("New card added: ", newCard);
+            //console.log("New card added: ", newCard);
 
             setList(prev => ({ 
                 ...prev, 
@@ -75,7 +75,7 @@ function useFlashcardManipulation({ setList, setErrorMessage }) {
                 return null;
             }
             const updatedCard = await response.json();
-            console.log("Card updated: ", updatedCard);
+            //console.log("Card updated: ", updatedCard);
             setList(prev => ({
             ...prev,
             cards: prev.cards.map(card =>
@@ -111,7 +111,7 @@ function useFlashcardManipulation({ setList, setErrorMessage }) {
                 console.error(message);
                 return null;
             }
-            console.log("Card deleted: ", response.status);
+            //console.log("Card deleted: ", response.status);
 
             setList(prev => ({
                 ...prev,
@@ -143,7 +143,7 @@ function useFlashcardManipulation({ setList, setErrorMessage }) {
             }
                 
             const cardsData = await response.json();
-            console.log("card data: ", cardsData);
+            //console.log("card data: ", cardsData);
             setList(prev => ({ 
                 ...prev, 
                 cards: cardsData 

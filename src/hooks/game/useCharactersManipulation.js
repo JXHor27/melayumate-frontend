@@ -23,7 +23,7 @@ function useCharactersManipulation({ setOwnedCharacters }) {
         return;
       }
       const result = response.status;
-      console.log("Character acquired successfully:", result);
+      //console.log("Character acquired successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to acquire character:", error);
@@ -51,7 +51,7 @@ function useCharactersManipulation({ setOwnedCharacters }) {
         return;
       }
       const result = response.status;
-      console.log("Character set as primary successfully:", result);
+      //console.log("Character set as primary successfully:", result);
       return result;
     } catch (error) {
         console.error("Failed to set primary character:", error);
@@ -79,7 +79,7 @@ function useCharactersManipulation({ setOwnedCharacters }) {
       }
                 
       const ownedCharacters = await response.json();
-      console.log("Owned characters: ", ownedCharacters);
+      //console.log("Owned characters: ", ownedCharacters);
       setOwnedCharacters(ownedCharacters);
       return ownedCharacters;
       } catch (error) {

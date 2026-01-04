@@ -23,7 +23,7 @@ function useCharactersDetail() {
                 }
                 
                 const ownedCharacters = await response.json();
-                console.log("Owned characters: ", ownedCharacters);
+                //console.log("Owned characters: ", ownedCharacters);
                 setOwnedCharacters(ownedCharacters);
                 
             } catch (error) {

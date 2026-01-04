@@ -28,7 +28,7 @@ function useChatManipulation() {
                 return null;
             }
             const result = await response.json();
-            console.log("New message added: ", result);
+            //console.log("New message added: ", result);
             return result;
         } catch (error) {
             console.error("Failed to send message:", error);

@@ -48,7 +48,7 @@ function QuestionPage() {
   async function handleCheckAnswer() {
    // setUserAnswer(selectedAnswer); // Store what the user chose
    if (userAnswer === null) return;
-   console.log("Selected answer:", userAnswer);
+   //console.log("Selected answer:", userAnswer);
     // --- This is where you would call your backend to validate the answer ---
     // For now, we'll do the logic on the frontend
     const currentQuestion = questions[currentQuestionIndex];
@@ -60,7 +60,7 @@ function QuestionPage() {
     else if (currentQuestion.questionType === 'SENTENCE_BUILDING') {
         isCorrect = userAnswer === currentQuestion.attributes.correct_sentence;
     }
-    console.log("Is the answer correct?", isCorrect);
+    //console.log("Is the answer correct?", isCorrect);
     setAnswerStatus(isCorrect ? 'correct' : 'incorrect');
     const result = await answerQuestion(currentQuestion.questionId, lessonId, userAnswer, isCorrect);
     if (!result){
