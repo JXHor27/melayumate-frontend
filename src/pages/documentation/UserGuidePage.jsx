@@ -45,8 +45,9 @@ const guideData = [
       icon: <UserIcon className="h-6 w-6" />,
       content: (
         <ul className="list-disc space-y-2 pl-5">
-          <li><b>Password Management:</b> Secure your account by updating your password at any time.</li>
           <li><b>Theme Switcher:</b> Customize your experience by switching between Light and Dark themes to suit your preference.</li>
+          <li><b>Password Management:</b> Secure your account by updating your password at any time.</li>
+          <li><b>Logout:</b> Logout from application whenever you've finished learning.</li>
         </ul>
       )
     },
@@ -57,7 +58,7 @@ const guideData = [
     content: (
       <div>
         <p className="mb-4">
-          This is instructor-led learning. The contents are created by your lecturers.
+          This is instructor-led learning. The contents are created by your lecturers. If the page is blank, that means no contents uploaded yet.
         </p>
         <ul className="list-disc space-y-3 pl-5">
           <li>

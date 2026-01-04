@@ -16,7 +16,7 @@ function NotificationItem({ notification }) {
     },
     BATTLE_CHALLENGE: {
       icon: <GiCrossedSwords size={20}/>,
-      bgColor: 'bg-red-500/20',
+      bgColor: 'bg-red-500/30 dark:bg-red-500/20',
       textColor: 'text-red-500 dark:text-red-400',
     },
     NEW_LESSON_AVAILABLE: {

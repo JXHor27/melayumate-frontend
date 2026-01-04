@@ -2,8 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { Client } from '@stomp/stompjs';
 import { API_BASE_URL } from "../../api/apiConfig";
 import { useAuth } from '../../context/AuthContext';
+const WEBSOCKET_URL = import.meta.env.VITE_WEBSOCKET_URL;
 
 function useChatRoom() {
+
     const { token, userId, username } = useAuth();
     const [messages, setMessages] = useState([]);
     const stompClientRef = useRef(null);
@@ -37,7 +39,7 @@ function useChatRoom() {
 
         // --- 2. Configure and activate the WebSocket connection ---
         const client = new Client({
-            brokerURL: "ws://localhost:8080/ws-chat",       
+            brokerURL: WEBSOCKET_URL,       
             connectHeaders: {
                 Authorization: `Bearer ${token}`
             },

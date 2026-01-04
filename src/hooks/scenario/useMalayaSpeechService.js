@@ -6,7 +6,7 @@ function useMalayaSpeechService() {
 
     async function generateAudio(malayText, gender) {
         try {
-            const response = await fetch("http://localhost:8080/api/v1/speech/tts", {
+            const response = await fetch(`${API_BASE_URL}/speech/tts`, {
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function useMalayaSpeechService() {
         // The key 'file' MUST match the @RequestParam("file") in your Spring controller.
         formData.append('file', audioFile);
         try {
-            const response = await fetch("http://localhost:8080/api/v1/speech/stt", {
+            const response = await fetch(`${API_BASE_URL}/speech/stt`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`

@@ -179,10 +179,10 @@ function BattleScenePage() {
 
 
       {/* Skip & Finish Button */}
-      <div className="absolute bottom-2 right-3 z-20 cursor-pointer">
+      <div className="absolute bottom-1 right-3 z-20 cursor-pointer">
         <button 
           onClick={handleSkipToEnd}
-          className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-8 rounded-lg transition-colors text-base"
+          className="shadow-lg bg-slate-50 hover:bg-slate-200 text-gray-900 dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white font-bold py-2 px-8 rounded-lg transition-colors text-base cursor-pointer"
         >
           {isBattleOver || isSkipped ? 'Finish' : 'Skip'}
         </button>
