@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { API_BASE_URL } from "../../api/apiConfig";
+import { BASE_URL } from "../../api/apiConfig";
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from "react-router-dom";
-
 // Custom hook to manage token validation
 function useRoot() {
     const { token, username } = useAuth();
@@ -12,7 +11,7 @@ function useRoot() {
     useEffect(() => {
         async function tokenRefresh(){
             try{
-                const response = await fetch(`http://localhost:8080`, {
+                const response = await fetch(`${BASE_URL}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
