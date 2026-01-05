@@ -133,10 +133,10 @@ function CharacterPage() {
               
               {/* "Unlock New Partners" Section */}
               <div>
-                <h2 className="text-3xl font-semibold dark:font-bold text-black dark:text-white mb-3 text-center">
+                <h2 className="text-3xl font-semibold dark:font-bold text-black dark:text-white mb-1 text-center">
                   {isChoosingSecond ? 'Choose Your Second Partner!' : 'Partners Pool'}
                 </h2>
-                <h1 className="text-lg font-medium dark:font-medium text-black dark:text-white mb-6 text-center">
+                <h1 className="text-base font-normal dark:font-normal text-black dark:text-white mb-6 text-center">
                   {isChoosingSecond ? 'Choose wisely! It is a one-way choice.' : 'Unlock new partner at level 1'}
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
