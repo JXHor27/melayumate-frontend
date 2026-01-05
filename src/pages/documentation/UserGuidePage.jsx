@@ -113,7 +113,7 @@ const guideData = [
           <li><b>Speaking Practice:</b> Record your own voice, and our AI will transcribe it.</li>
           <li><b>Listening Practice:</b> Key in the Malay word and let the AI do the job to generate an audio clip for you. You can choose either a male or female voice.</li>
           <i>Hint 1:</i> If you do not like the audio, you can try another one by switching between the audio options or close the sliding form to reset the audio.
-          <i>Hint 2:</i> You can generate the audio. Listen and speak according to it, and let AI transcribe to check.
+          <i> Hint 2:</i> You can generate the audio. Listen and speak according to it, and let AI transcribe to check.
         </ul>
         </>
       )
