@@ -110,9 +110,10 @@ const guideData = [
         <ul className="list-disc space-y-2 pl-5 mt-2">
           <li><b>Add Dialogue:</b> Click on upper right edit button. Question is shown on the other end in conversation. Response is shown on your end.</li>
           <li><b>Dialogue Order:</b> Question comes before Response with same order. Dialogue with same type and same order is not allowed. Max order is set to 5 to avoid length dialogue session.</li>
-          <li><b>Speaking Practice:</b> Record your own voice, and our AI will transcribe it to check your pronunciation and accuracy.</li>
+          <li><b>Speaking Practice:</b> Record your own voice, and our AI will transcribe it.</li>
           <li><b>Listening Practice:</b> Key in the Malay word and let the AI do the job to generate an audio clip for you. You can choose either a male or female voice.</li>
-          <i>Hint:</i> If you do not like the audio, you can try another one by switching between the audio options or close the sliding form to reset the audio.
+          <i>Hint 1:</i> If you do not like the audio, you can try another one by switching between the audio options or close the sliding form to reset the audio.
+          <i>Hint 2:</i> You can generate the audio. Listen and speak according to it, and let AI transcribe to check.
         </ul>
         </>
       )
