@@ -93,7 +93,7 @@ function QuestionPage() {
 
   if (questions.length === 0) {
     return (
-      <div className="bg-zinc-900 min-h-screen p-4 text-white">
+      <div className="bg-slate-100 dark:bg-zinc-900 min-h-screen p-4 text-white">
         {/* --- Header with just the Exit button --- */}
         <div className="flex justify-start mb-8">
             <button onClick={() => navigate('/lesson')} className="text-black dark:text-white text-xl hover:text-red-400 cursor-pointer">
@@ -103,13 +103,13 @@ function QuestionPage() {
 
         {/* --- Empty State Message --- */}
         <div className="text-center">
-            <h2 className="text-2xl font-bold mb-4">This Lesson is Empty</h2>
-            <p className="text-gray-400 mb-6">
+            <h2 className="text-2xl font-bold mb-4 text-black dark:text-white">This Lesson is Empty</h2>
+            <p className="text-gray-900 dark:text-gray-400 mb-6">
                 Questions are being prepared. Please check back later!
             </p>
             <button
                 onClick={() => navigate('/lesson')}
-                className="px-6 py-3 bg-purple-600 font-bold rounded-lg hover:bg-purple-700"
+                className="cursor-pointer px-6 py-3 bg-purple-600 font-bold rounded-lg hover:bg-purple-700"
             >
                 Back to Lessons
             </button>
