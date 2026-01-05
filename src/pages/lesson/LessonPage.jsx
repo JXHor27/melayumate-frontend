@@ -41,7 +41,7 @@ function LessonPage() {
             {/* <h1 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">Your Learning Path</h1> */}
             
             {/* Grid container for the lesson cards */}
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
+            {lessons.length !== 0 ? ( <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
               {lessons.map(lesson => (
                 <LessonCard 
                   key={lesson.lessonId}
@@ -49,7 +49,13 @@ function LessonPage() {
                   onStart={() => handleStartLesson(lesson.lessonId)}
                 />
               ))}
+            </div>) : (
+              <div className="p-12 bg-white dark:bg-slate-800/50 rounded-lg text-center text-gray-500 dark:text-gray-500 border-2 border-dashed border-gray-300 dark:border-slate-700">
+              <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">No Lesson Available</h3>
+              <p>There is no lesson. Please wait for your lecturer to upload</p>
             </div>
+            )}
+           
           </div>
         </div>
         {/* ----------------------------- */}
