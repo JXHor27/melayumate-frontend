@@ -94,7 +94,7 @@ function CharacterPage() {
           {isChoosingStarter && (
             <div className="text-center p-8 bg-slate-300/70 dark:bg-slate-900/50 rounded-2xl">
               <h1 className="text-4xl font-semibold dark:font-bold text-gray-900 dark:text-white mb-2">Choose Your First Partner</h1>
-              <p className="text-gray-900 dark:text-gray-400 mb-8 max-w-2xl mx-auto">This will be your first companion on your learning journey. Choose wisely!</p>
+              <p className="text-gray-900 dark:text-gray-400 mb-8 max-w-2xl mx-auto">This will be your first companion on your learning journey. Choose wisely! It is a one-way choice.</p>
               <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {charactersTemplate.filter(t => t.unlockLevel === 0).map(template => (
                   <CharacterCard 
@@ -134,7 +134,7 @@ function CharacterPage() {
               {/* "Unlock New Partners" Section */}
               <div>
                 <h2 className="text-3xl font-semibold dark:font-bold text-black dark:text-white mb-6 text-center">
-                  {!isChoosingSecond ? 'Choose Your Second Partner!' : 'Unlock New Partners'}
+                  {!isChoosingSecond ? 'Choose Your Second Partner! Choose wisely! It is a one-way choice.' : 'Unlock New Partners'}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                   {charactersTemplate.map(template => (

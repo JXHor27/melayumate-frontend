@@ -124,8 +124,8 @@ const guideData = [
       icon: <GiVintageRobot size={24} />,
       content: (
         <ul className="list-disc space-y-2 pl-5">
-          <li><b>Choose Your First Partner:</b> When you start at Level 0, you choose your first companion to join you on your learning journey.</li>
-          <li><b>Unlock One More Character:</b> As you learn and gain EXP, you level up. Reaching another level (Level 1) unlocks a new partner for your team.</li>
+          <li><b>Choose Your First Partner:</b> When you start at Level 0, you choose your first companion out of 5. It is a one-way character choice, the others 4 are not accessible after this.</li>
+          <li><b>Unlock One More Character:</b> Reaching Level 1 unlocks a new partner out of 5 for your team. It is also a one-way character choice, the others 4 are not accessible after this.</li>
           <li><b>Primary Character:</b> Only 2 partners with you. Switch between them by setting either one as the primary.</li>
           <li><b>Character Usage:</b> You can find your primary character at different corners, chat room, dialogue session, flashcard practice and battle.</li>
         </ul>
