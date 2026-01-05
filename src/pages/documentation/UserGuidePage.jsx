@@ -158,7 +158,7 @@ const guideData = [
           <li><b>How does the level up works?</b><br/>This is a flat EXP gain mechanism. Every level requires exactly 100 EXP to the next level.</li>
           <li><b>What is the maximum level I can reached?</b><br/>There is no level limit for now. Level up as much as you wish. Focus less on levelling up but more on actual learning, that's the goal.</li>
           <li><b>What devices does this platform support?</b><br/>You can access this platform on any device with a modern web browser, including desktop computers, laptops, tablets, and smartphones, with a minimum screen size of 320px. Though larger screens give the optimized experience.</li>
-          <li><b>How to get started?</b><br/>Start by unlocking your first partner. Then you are free to explore any of the three learning modules</li>
+          <li><b>How to get started?</b><br/>Start by unlocking your first partner. Then you are free to explore any of the three learning modules.</li>
         </ul>
         </>
       )
