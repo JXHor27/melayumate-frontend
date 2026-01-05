@@ -137,7 +137,7 @@ function CharacterPage() {
                   {isChoosingSecond ? 'Choose Your Second Partner!' : 'Partners Pool'}
                 </h2>
                 <h1 className="text-base font-normal dark:font-normal text-black dark:text-white mb-6 text-center">
-                  {isChoosingSecond ? 'Choose wisely! It is a one-way choice.' : 'Unlock new partner at level 1'}
+                  {isChoosingSecond ? 'Choose wisely! It is a one-way choice.' : 'They are waiting their owners!'}
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                   {charactersTemplate.map(template => (
