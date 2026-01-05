@@ -52,7 +52,7 @@ function LessonPage() {
             </div>) : (
               <div className="p-12 bg-white dark:bg-slate-800/50 rounded-lg text-center text-gray-500 dark:text-gray-500 border-2 border-dashed border-gray-300 dark:border-slate-700">
               <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">No Lesson Available</h3>
-              <p>There is no lesson. Please wait for your lecturer to upload</p>
+              <p>There is no lesson. Please wait for your lecturer to upload the lesson contents.</p>
             </div>
             )}
            
