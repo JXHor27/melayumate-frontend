@@ -23,7 +23,7 @@ function ChatPanel({ messages, onSendMessage, onClose }) {
       const paddedMonth = String(month).padStart(2, '0');
       const paddedDay = String(day).padStart(2, '0');
 
-      setCurrentDate(`${year}-${month}-${paddedMonth}`);
+      setCurrentDate(`${year}-${paddedMonth}-${paddedDay}`);
     };
 
     updateDate(); // Set initial date
